@@ -49,9 +49,9 @@ Terraform module to deploy blackbox-exporter on kubernetes.
 | deployment\_template\_annotations | Map of annotations that are configured on the deployment. |
 | deployment\_template\_labels | Map of labels that are configured on the deployment. |
 | grafana\_dashboards | List of strings representing grafana dashbaords under the form of json strings. |
-| image\_name | Name of the docker image used for the cloudwatch-exporter container. |
-| image\_pull\_policy | Image pull policy defined on the cloudwatch-exporter container. |
-| image\_version | Tag of the docker image used for the cloudwatch-exporter container. |
+| image\_name | Name of the docker image used for the blackbox-exporter container. |
+| image\_pull\_policy | Image pull policy defined on the blackbox-exporter container. |
+| image\_version | Tag of the docker image used for the blackbox-exporter container. |
 | namespace | Name of the namespace in which the resources have been deployed. |
 | prometheus\_alert\_groups | List of object representing prometheus alert groups you can importer for prometheus to alert you in case of problems. |
 | prometheus\_scrape\_configs | List of objects representing the promehteus scrape configs you need import for prometheus to scrape this exporter. |
