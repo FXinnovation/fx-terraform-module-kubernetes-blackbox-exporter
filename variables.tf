@@ -27,7 +27,7 @@ variable "namespace" {
 #####
 
 variable "configuration" {
-  description = "Object representating the configuration for blackbox-exporter. (will be converted into yaml)"
+  description = "Object representating the configuration for blackbox-exporter. [documentation](https://github.com/prometheus/blackbox_exporter/blob/master/CONFIGURATION.md) (will be converted into yaml)"
   type        = any
   default = {
     modules = {
