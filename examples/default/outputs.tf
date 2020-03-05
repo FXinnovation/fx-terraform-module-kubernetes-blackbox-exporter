@@ -96,6 +96,25 @@ output "service_labels" {
 }
 
 #####
+# Configmap
+#####
+
+output "config_map_name" {
+  description = "Name of the config_map created by the module."
+  value       = module.default.config_map_name
+}
+
+output "config_map_annotations" {
+  description = "Map of annotations that are configured on the config_map."
+  value       = module.default.config_map_annotations
+}
+
+output "config_map_labels" {
+  description = "Map of labels that are configured on the config_map."
+  value       = module.default.config_map_labels
+}
+
+#####
 # Namespace
 #####
 
