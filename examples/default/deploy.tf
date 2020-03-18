@@ -58,6 +58,9 @@ module "default" {
     {
       name    = "http_2xx",
       targets = ["https://fxinnovation.com"]
+      labels = {
+        "test" = "true"
+      }
     }
   ]
 }
