@@ -60,7 +60,7 @@ resource "kubernetes_deployment" "this" {
   }
 
   spec {
-    replicas = 1
+    replicas = var.replicas
 
     selector {
       match_labels = {
