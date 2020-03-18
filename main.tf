@@ -17,8 +17,11 @@ locals {
     module_targets = var.module_targets,
     blackbox_url   = "${element(concat(kubernetes_service.this.*.metadata.0.name, list("")), 0)}.${element(concat(kubernetes_service.this.*.metadata.0.namespace, list("")), 0)}"
   })
-  grafana_dashboards      = []
-  prometheus_alert_groups = []
+  grafana_dashboards = [
+    file("${path.module}/templates/grafana-dashboards/dashboard.json")
+  ]
+  prometheus_alert_groups = [
+  ]
 }
 
 #####
