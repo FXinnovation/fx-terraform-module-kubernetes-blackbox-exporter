@@ -71,6 +71,9 @@ resource "kubernetes_deployment" "this" {
     template {
       metadata {
         annotations = merge(
+          {
+            "prometheus.io/scrape" = "true"
+          },
           var.annotations,
           var.deployment_template_annotations
         )
