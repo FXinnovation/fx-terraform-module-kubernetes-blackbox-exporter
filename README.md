@@ -29,7 +29,7 @@ Terraform module to deploy blackbox-exporter on kubernetes.
 | image\_pull\_policy | Image pull policy on the main container. | `string` | `"IfNotPresent"` | no |
 | image\_version | Tag of the docker image to use. | `string` | `"v0.16.0"` | no |
 | labels | Additionnal labels that will be merged on all resources. | `map` | `{}` | no |
-| module\_targets | List of objects representing all the targets you want to activate the blackbox-exporter on (with it's modules). **Note:** This value is used by the prometheus configuration helper which is the `prometheus_scrape_configs` output. | <pre>list(object({<br>    name    = string<br>    targets = list(string)<br>  }))</pre> | `[]` | no |
+| module\_targets | List of objects representing all the targets you want to activate the blackbox-exporter on (with it's modules). **Note:** This value is used by the prometheus configuration helper which is the `prometheus_scrape_configs` output. | <pre>list(object({<br>    name    = string<br>    targets = list(string)<br>    labels  = map(string)<br>  }))</pre> | `[]` | no |
 | namespace | Namespace in which the module will be deployed. | `string` | `"default"` | no |
 | replicas | Number of replicas to deploy. | `number` | `1` | no |
 | service\_annotations | Additionnal annotations that will be merged for the service. | `map` | `{}` | no |

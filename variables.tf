@@ -89,6 +89,7 @@ variable "module_targets" {
   type = list(object({
     name    = string
     targets = list(string)
+    labels  = map(string)
   }))
   default = []
 }

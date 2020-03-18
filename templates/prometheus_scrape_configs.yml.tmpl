@@ -9,6 +9,10 @@ scrape_configs:
 %{ for target in module.targets ~}
         - ${target}
 %{ endfor ~}
+        labels:
+%{ for label in module.labels ~}
+          ${label.key}: "${label.value}"
+%{ endfor ~}
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
