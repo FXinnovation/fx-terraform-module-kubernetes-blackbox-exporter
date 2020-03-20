@@ -281,9 +281,6 @@ resource "kubernetes_service" "this" {
     name      = var.service_name
     namespace = var.namespace
     annotations = merge(
-      {
-        "prometheus.io/scrape" = "true"
-      },
       var.annotations,
       var.service_annotations
     )

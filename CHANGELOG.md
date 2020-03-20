@@ -2,6 +2,7 @@
 1.1.0 / 2020-03-20
 ==================
 
+  * fix: Remove scrape annotation from service
   * feat: Add default alerts as output of the module.
 
 1.0.0 / 2020-03-18
