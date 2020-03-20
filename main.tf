@@ -21,6 +21,81 @@ locals {
     file("${path.module}/templates/grafana-dashboards/dashboard.json")
   ]
   prometheus_alert_groups = [
+    {
+      "name" = "blackbox-exporter"
+      "rules" = [
+        {
+          "alert"  = "blackbox-exporter - config reload"
+          "expr"   = "blackbox_exporter_config_last_reload_successful < 1"
+          "for"    = "30m"
+          "labels" = var.prometheus_alert_groups_rules_labels
+          "annotations" = merge(
+            {
+              "summary"     = "Blackbox Exporter - A configuration reload has failed on {{ $labels.instance }}"
+              "description" = "Blackbox Exporter:\nA configuration reload has been failing for 30min on {{ $labels.instance }}.\nLabels:\n{{ $labels }}"
+            },
+            var.promehtues_alert_groups_rules_annotations
+          )
+        }
+      ]
+    },
+    {
+      "name" = "blackbox"
+      "rules" = [
+        {
+          "alert"  = "blackbox - probe down warning"
+          "expr"   = "probe_success < 1"
+          "for"    = "2m"
+          "labels" = var.prometheus_alert_groups_rules_labels
+          "annotations" = merge(
+            {
+              "summary"     = "Blackbox - {{ $labels.instance }} has been down for at least 2 minutes"
+              "description" = "Blackbox: \n {{ $labels.instance }} has been down for at least 2 minutes\nLabels:\n{{ $labels }}"
+            },
+            var.prometheus_alert_groups_rules_annotations
+          )
+        },
+        {
+          "alert"  = "blackbox - probe down critical"
+          "expr"   = "probe_success < 1"
+          "for"    = "10m"
+          "labels" = var.prometheus_alert_groups_rules_labels
+          "annotations" = merge(
+            {
+              "summary"     = "Blackbox - {{ $labels.instance }} has been down for at least 10 minutes"
+              "description" = "Blackbox: \n {{ $labels.instance }} has been down for at least 10 minutes\nLabels:\n{{ $labels }}"
+            },
+            var.prometheus_alert_groups_rules_annotations
+          )
+        },
+        {
+          "alert"  = "blackbox - SSL certificate warning"
+          "expr"   = "probe_ssl_earliest_cert_expiry - time() < ( 29 * 24 * 60 * 60 )"
+          "for"    = "10m"
+          "labels" = var.prometheus_alert_groups_rules_labels
+          "annotations" = merge(
+            {
+              "summary"     = "Blackbox - The SSL certificate for {{ $labels.instance }} will expire in less then 29 days"
+              "description" = "Blackbox: \n The SSL certificate for {{ $labels.instance }} will expire in {{ $value / ( 60 * 60 * 24 ) }} days.\nLabels:\n{{ $labels }}"
+            },
+            var.prometheus_alert_groups_rules_annotations
+          )
+        },
+        {
+          "alert"  = "blackbox - SSL certificate critical"
+          "expr"   = "probe_ssl_earliest_cert_expiry - time() < ( 10 * 24 * 60 * 60 )"
+          "for"    = "10m"
+          "labels" = var.prometheus_alert_groups_rules_labels
+          "annotations" = merge(
+            {
+              "summary"     = "Blackbox - The SSL certificate for {{ $labels.instance }} will expire in less then 10 days"
+              "description" = "Blackbox: \n The SSL certificate for {{ $labels.instance }} will expire in {{ $value / ( 60 * 60 * 24 ) }} days.\nLabels:\n{{ $labels }}"
+            },
+            var.prometheus_alert_groups_rules_annotations
+          )
+        },
+      ]
+    }
   ]
 }
 

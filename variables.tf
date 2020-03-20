@@ -23,6 +23,20 @@ variable "namespace" {
 }
 
 #####
+# Prometheus
+#####
+
+variable "prometheus_alert_groups_rules_labels" {
+  description = "Map of strings that will be merge on all prometheus alert groups rules labels."
+  default     = {}
+}
+
+variable "prometheus_alert_groups_rules_annotations" {
+  description = "Map of strings that will be merge on all prometheus alert groups rules annotations."
+  default     = {}
+}
+
+#####
 # Application
 #####
 

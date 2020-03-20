@@ -1,5 +1,10 @@
 
-1.0.0 / 2020-03-19
+1.1.0 / 2020-03-20
+==================
+
+  * feat: Add default alerts as output of the module.
+
+1.0.0 / 2020-03-18
 ==================
 
   * tech: adapt example to changes

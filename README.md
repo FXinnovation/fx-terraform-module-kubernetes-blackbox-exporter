@@ -31,6 +31,8 @@ Terraform module to deploy blackbox-exporter on kubernetes.
 | labels | Additionnal labels that will be merged on all resources. | `map` | `{}` | no |
 | module\_targets | List of objects representing all the targets you want to activate the blackbox-exporter on (with it's modules). **Note:** This value is used by the prometheus configuration helper which is the `prometheus_scrape_configs` output. | <pre>list(object({<br>    name    = string<br>    targets = list(string)<br>    labels  = map(string)<br>  }))</pre> | `[]` | no |
 | namespace | Namespace in which the module will be deployed. | `string` | `"default"` | no |
+| prometheus\_alert\_groups\_rules\_annotations | Map of strings that will be merge on all prometheus alert groups rules annotations. | `map` | `{}` | no |
+| prometheus\_alert\_groups\_rules\_labels | Map of strings that will be merge on all prometheus alert groups rules labels. | `map` | `{}` | no |
 | replicas | Number of replicas to deploy. | `number` | `1` | no |
 | service\_annotations | Additionnal annotations that will be merged for the service. | `map` | `{}` | no |
 | service\_labels | Additionnal labels that will be merged for the service. | `map` | `{}` | no |
