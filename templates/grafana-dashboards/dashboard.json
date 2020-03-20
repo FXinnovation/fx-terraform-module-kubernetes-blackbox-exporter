@@ -15,11 +15,11 @@
   "editable": false,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 95,
-  "iteration": 1584559278392,
+  "id": null,
   "links": [],
   "panels": [
     {
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -27,6 +27,7 @@
         "y": 0
       },
       "id": 2,
+      "panels": [],
       "title": "Overview",
       "type": "row"
     },
@@ -850,32 +851,18 @@
       ],
       "title": "Detailed",
       "type": "row"
-    },
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 11
-      },
-      "id": 16,
-      "panels": [],
-      "title": "Exporter",
-      "type": "row"
     }
   ],
-  "refresh": false,
+  "refresh": "1m",
   "schemaVersion": 19,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "blackbox"
+  ],
   "templating": {
     "list": [
       {
-        "current": {
-          "text": "prometheus",
-          "value": "prometheus"
-        },
+        "current": {},
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",
@@ -890,13 +877,8 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "tags": [],
-          "text": "All",
-          "value": "$__all"
-        },
-        "datasource": "prometheus",
+        "current": {},
+        "datasource": "$datasource",
         "definition": "label_values(probe_success, instance)",
         "hide": 0,
         "includeAll": true,
@@ -936,7 +918,7 @@
     ]
   },
   "timezone": "",
-  "title": "BlackboxExporter",
+  "title": "Blackbox",
   "uid": "MEasD_XZk",
-  "version": 4
+  "version": 9
 }

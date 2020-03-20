@@ -34,7 +34,7 @@ locals {
               "summary"     = "Blackbox Exporter - A configuration reload has failed on {{ $labels.instance }}"
               "description" = "Blackbox Exporter:\nA configuration reload has been failing for 30min on {{ $labels.instance }}.\nLabels:\n{{ $labels }}"
             },
-            var.promehtues_alert_groups_rules_annotations
+            var.prometheus_alert_groups_rules_annotations
           )
         }
       ]
