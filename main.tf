@@ -76,7 +76,7 @@ locals {
           "annotations" = merge(
             {
               "summary"     = "Blackbox - The SSL certificate for {{ $labels.instance }} will expire in less then 29 days"
-              "description" = "Blackbox: \n The SSL certificate for {{ $labels.instance }} will expire in {{ $value / ( 60 * 60 * 24 ) }} days.\nLabels:\n{{ $labels }}"
+              "description" = "Blackbox: \n The SSL certificate for {{ $labels.instance }} will expire in {{ $value }} seconds.\nLabels:\n{{ $labels }}"
             },
             var.prometheus_alert_groups_rules_annotations
           )
@@ -89,7 +89,7 @@ locals {
           "annotations" = merge(
             {
               "summary"     = "Blackbox - The SSL certificate for {{ $labels.instance }} will expire in less then 10 days"
-              "description" = "Blackbox: \n The SSL certificate for {{ $labels.instance }} will expire in {{ $value / ( 60 * 60 * 24 ) }} days.\nLabels:\n{{ $labels }}"
+              "description" = "Blackbox: \n The SSL certificate for {{ $labels.instance }} will expire in {{ $value }} seconds.\nLabels:\n{{ $labels }}"
             },
             var.prometheus_alert_groups_rules_annotations
           )
