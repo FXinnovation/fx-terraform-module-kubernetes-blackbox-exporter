@@ -148,6 +148,7 @@ resource "kubernetes_deployment" "this" {
         annotations = merge(
           {
             "prometheus.io/scrape" = "true"
+            "prometheus.io/port"   = local.port
           },
           var.annotations,
           var.deployment_template_annotations

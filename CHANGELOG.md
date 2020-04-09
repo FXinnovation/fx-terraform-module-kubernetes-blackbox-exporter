@@ -1,4 +1,14 @@
 
+1.1.2 / 2020-04-09
+==================
+
+  * fix: Add port annotation for prometheus on pods
+
+1.1.1 / 2020-03-24
+==================
+
+  * fix: Error in alert rule groups output
+
 1.1.0 / 2020-03-20
 ==================
 
