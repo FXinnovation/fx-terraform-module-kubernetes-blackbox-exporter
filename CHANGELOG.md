@@ -1,4 +1,9 @@
 
+1.2.0 / 2020-04-13
+==================
+
+  * feat: Change alerts annotations and labels as well as k8s resources labels and annotations.
+
 1.1.2 / 2020-04-09
 ==================
 
