@@ -3,6 +3,7 @@
 ==================
 
   * feat: (BREAKING CHANGE) Update kubernetes terraform provider to version 2.x
+  * chore: bump pre-commit hooks
 
 1.2.0 / 2020-04-13
 ==================
