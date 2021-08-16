@@ -1,4 +1,9 @@
 
+1.3.0 / 2021-08-16
+==================
+
+  * feat: (BREAKING CHANGE) Update kubernetes terraform provider to version 2.x
+
 1.2.0 / 2020-04-13
 ==================
 

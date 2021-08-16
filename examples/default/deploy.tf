@@ -7,8 +7,7 @@ provider "random" {
 }
 
 provider "kubernetes" {
-  version          = "1.10.0"
-  load_config_file = true
+  config_path = "~/.kube/config"
 }
 
 #####
