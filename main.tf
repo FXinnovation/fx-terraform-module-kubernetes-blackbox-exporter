@@ -15,7 +15,7 @@ locals {
   service_port  = 80
   prometheus_scrape_configs = templatefile("${path.module}/templates/prometheus_scrape_configs.yml.tmpl", {
     module_targets = var.module_targets,
-    blackbox_url   = "${element(concat(kubernetes_service.this.*.metadata.0.name, list("")), 0)}.${element(concat(kubernetes_service.this.*.metadata.0.namespace, list("")), 0)}"
+    blackbox_url   = "${element(concat(kubernetes_service.this.*.metadata.0.name, []), 0)}.${element(concat(kubernetes_service.this.*.metadata.0.namespace, []), 0)}"
   })
   grafana_dashboards = [
     file("${path.module}/templates/grafana-dashboards/dashboard.json")
